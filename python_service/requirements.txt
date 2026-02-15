@@ -1,0 +1,5 @@
+# Add your dependencies here
+# example:
+# requests
+# fastapi
+# uvicorn
