@@ -89,6 +89,12 @@ body {
   width: 100%;
 }
 
+.content-body.full-bleed {
+  padding: 0;
+  max-width: none;
+  margin: 0;
+}
+
 /* Square Utility */
 .square {
   border-radius: 0 !important;

@@ -1,53 +1,53 @@
 import React from 'react';
 import {
-    LayoutDashboard,
-    Users,
-    Settings,
-    Package,
-    BarChart3,
-    LogOut,
-    ChevronRight,
-    ShieldCheck
+  LayoutDashboard,
+  Users,
+  Settings,
+  Package,
+  BarChart3,
+  LogOut,
+  ChevronRight,
+  ShieldCheck
 } from 'lucide-react';
 
 const Sidebar = ({ activeTab, setActiveTab }) => {
-    const menuItems = [
-        { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
-        { id: 'inventory', label: 'Inventory', icon: Package },
-        { id: 'users', label: 'Staff Management', icon: Users },
-        { id: 'analytics', label: 'Analytics', icon: BarChart3 },
-        { id: 'settings', label: 'Settings', icon: Settings },
-    ];
+  const menuItems = [
+    { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { id: 'webtra', label: 'Web Tra', icon: Package },
+    { id: 'users', label: 'Staff Management', icon: Users },
+    { id: 'analytics', label: 'Analytics', icon: BarChart3 },
+    { id: 'settings', label: 'Settings', icon: Settings },
+  ];
 
-    return (
-        <aside className="sidebar">
-            <div className="sidebar-header">
-                <ShieldCheck size={28} className="text-accent" />
-                <span className="sidebar-logo">ADMIN PRO</span>
-            </div>
+  return (
+    <aside className="sidebar">
+      <div className="sidebar-header">
+        <ShieldCheck size={28} className="text-accent" />
+        <span className="sidebar-logo">ADMIN PRO</span>
+      </div>
 
-            <nav className="sidebar-nav">
-                {menuItems.map((item) => (
-                    <button
-                        key={item.id}
-                        onClick={() => setActiveTab(item.id)}
-                        className={`nav-item ${activeTab === item.id ? 'active' : ''}`}
-                    >
-                        <item.icon size={20} />
-                        <span className="nav-label">{item.label}</span>
-                        {activeTab === item.id && <ChevronRight size={14} className="active-indicator" />}
-                    </button>
-                ))}
-            </nav>
+      <nav className="sidebar-nav">
+        {menuItems.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => setActiveTab(item.id)}
+            className={`nav-item ${activeTab === item.id ? 'active' : ''}`}
+          >
+            <item.icon size={20} />
+            <span className="nav-label">{item.label}</span>
+            {activeTab === item.id && <ChevronRight size={14} className="active-indicator" />}
+          </button>
+        ))}
+      </nav>
 
-            <div className="sidebar-footer">
-                <button className="nav-item logout-btn">
-                    <LogOut size={20} />
-                    <span className="nav-label">Logout</span>
-                </button>
-            </div>
+      <div className="sidebar-footer">
+        <button className="nav-item logout-btn">
+          <LogOut size={20} />
+          <span className="nav-label">Logout</span>
+        </button>
+      </div>
 
-            <style jsx>{`
+      <style jsx>{`
         .sidebar {
           width: var(--sidebar-width);
           height: 100vh;
@@ -134,8 +134,8 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
           color: var(--accent);
         }
       `}</style>
-        </aside>
-    );
+    </aside>
+  );
 };
 
 export default Sidebar;
