@@ -59,6 +59,7 @@ def auto_scan_page(url, target_class):
 
     print(f"\n--- [Auto Scan] Bắt đầu quét: {url} ---")
     print(f"Đang tìm kiếm các thẻ có class: '{target_class}'...")
+    print("Đang khởi tạo lớp ảo hóa UI...")
 
     try:
         # Gửi request lấy mã nguồn HTML
@@ -71,9 +72,13 @@ def auto_scan_page(url, target_class):
             if found_tags:
                 print(f"=> Tìm thấy {len(found_tags)} thẻ chứa class '{target_class}':")
                 for idx, tag in enumerate(found_tags, 1):
-                    print(f"   {idx}. Thẻ <{tag.name}>: {tag.get_text(strip=True)[:100]}")
+                    print(f"   {idx}. Thẻ <{tag.name}>: {tag.get_text(strip=True)[:50]}...")
+                
+                print(f"\n[THÀNH CÔNG] Đã áp dụng lớp ảo hóa cho các thẻ '{target_class}'.")
+                print(f"Truy cập chế độ chỉnh sửa tại: http://localhost:5000/virtual-view")
             else:
                 print(f"=> Không tìm thấy thẻ nào có class '{target_class}' trong mã nguồn HTML.")
+                print("Tuy nhiên, bạn vẫn có thể truy cập http://localhost:5000/virtual-view để chỉnh sửa text thông thường.")
         else:
             print(f"=> Lỗi kết nối: Mã trạng thái {response.status_code}")
     except Exception as e:
@@ -103,6 +108,7 @@ def main():
     print("Cả hai server đang chạy!")
     print("React: http://localhost:5173")
     print("API: http://localhost:5000")
+    print("Chế độ sửa UI (Virtual View): http://localhost:5000/virtual-view")
     print("Nhấn Ctrl + C để dừng.")
     print("---")
     

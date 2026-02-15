@@ -6,20 +6,10 @@ const EmbedPage = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchUrl = async () => {
-            try {
-                const response = await fetch('http://localhost:5000/api/get-url');
-                const data = await response.json();
-                setUrl(data.url);
-            } catch (error) {
-                console.error('Error fetching URL:', error);
-                setUrl('https://web-tra.pages.dev/'); // Fallback
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchUrl();
+        // Trỏ thằng về root của Python Server.
+        // Server này bây giờ hoạt động như một Reverse Proxy thông minh.
+        setUrl('http://localhost:5000/');
+        setLoading(false);
     }, []);
 
     if (loading) {
